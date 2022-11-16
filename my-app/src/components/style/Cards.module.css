@@ -1,0 +1,27 @@
+/*Cards es un contenedor que tiene todas las Card.  */
+.claseCards {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+}
+/*.claseCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+} --- quiero mientra sea un celular, mientras quiero em uma pc  (justify-content: center;-- ese usamos para centrar as 3 cards de cards)*/
+
+/** EL component CARDS  es el que va a renderzizar todas las CARD */
+
+/** */
+/** */
+/** */
+/** */
+/* @media screen and (min-width: 576px) {
+  .claseCards {
+    flex-direction: row;
+    justify-content:flex-end;
+  }
+} */
+/*--(( esse a@ usamos em la homework pq nao andava entonces escrevemos assim
+*/

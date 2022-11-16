@@ -1,14 +1,18 @@
+import styles from "./style/Card.module.css";
+import { IoCloseCircleOutline } from "react-icons/io5";
 export default function Card(props) {
   //console.log(props);
-  // const { name, image, species, gender, onClose } = props;
+  const { name, image, species, gender, onClose, primary } = props;
 
   return (
-    <div>
-      <button onClick={props.onClose}>X</button>
-      <h2>{props.name}</h2>
-      <h2>{props.species}</h2>
-      <h2>{props.gender}</h2>
-      <img src={props.image} alt={props.name} />
+    <div className={`${styles.card} ${primary ? styles.primary : ""}`}>
+      <button className={styles.claseButton} onClick={onClose}>
+        <IoCloseCircleOutline />
+      </button>
+      <h3 className={styles.personName}>{name}</h3>
+      <div className={styles.claseSpecies}>{species}</div>
+      <div className={styles.claseGender}>{gender}</div>
+      <img className={styles.claseImage} src={image} alt={name} />
     </div>
   );
 }

@@ -1,8 +1,13 @@
+/* :root {
+ --color-maximum-red: #d62828;
+  --color-prussian-blue: #023047;
+
+  --btn-danger-color: var(--color-maximum-red);
+  --btn-color: var(--color-prussian-blue);
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -25,3 +30,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+*/
+
+/* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400&display=swap"); */
+
+:root {
+  --color-maximum-red: #d62828;
+  --color-prussian-blue: #023047;
+
+  --btn-danger-color: var(--color-maximum-red);
+  --btn-color: var(--color-prussian-blue);
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+input {
+  font-family: "Raleway", sans-serif;
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+} */
+
+/* 
+
+:root {
+  --primary-color: #476072;
+  --primary-font-color: #eeeeee;
+  --body-color: #e1e8eb;
+}
+
+body {
+  background-color: var(--body-color);
+  font-family: "Open Sans", sans-serif;
+}
+
+.title {
+  text-transform: capitalize;
+  /* text-transform: uppercase; */
+/* text-align: center; */
+
+/* background-color: var(--primary-color);
+  color: var(--primary-font-color);
+/* } */
