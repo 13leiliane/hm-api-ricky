@@ -1,15 +1,3 @@
-// import styles from "./style/SearchBar.module.css";
-
-// export default function SearchBar(props) {
-//   const { onSearch } = props;
-//   return (
-//     <div className={styles.searchBar}>
-//       <input type="search" />
-//       <button onClick={() => onSearch()}>Agregar</button>
-//     </div>
-//   );
-// }
-
 import { IoMdCloseCircle } from "react-icons/io";
 import styles from "./style/SearchBar.module.css";
 
@@ -24,7 +12,7 @@ export default function SearchBar({ onSearch }) {
     }
   }
   return (
-    <div className={styles.SearchBar}>
+    <div className={styles.searchbar}>
       <input
         className={styles.input}
         id="search-bar-input"

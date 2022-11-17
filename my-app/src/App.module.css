@@ -5,43 +5,35 @@
   right: 0;
 }
 .img {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: bluer(16pix);
-  background-color: #77777779;
+  backdrop-filter: bluer(10pix);
+  background-color: rgba(165, 42, 42, 0.311);
 }
 .container {
-  width: 70vw;
-  height: 70vh;
-  margin: 15vh 15vw;
+  width: 80vw;
+  height: 80vh;
+  margin: 10vh 8.5vw;
   top: 0;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 0.5fr;
   grid-template-rows: 50vh 20vh;
 }
 
 /* esse es para el card*/
 .saim {
-  display: inline-flex;
-  height: 20vh;
-  background-color: #ffffff96;
-  backdrop-filter: bluer(16pix);
-  justify-content: space-between;
-  /* 
-  width: 100%;
-  left: 50%;
-  
-  
-  j */
+  display: flex;
 }
 .app,
 .container {
   background-image: url("./assets/img.png");
+  /* background-image: url("./assets/photo.git"); */
+  /* background-image: url("./assets/imger.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 3rem;
+  border-radius: 1rem;
 
   position: absolute;
 }

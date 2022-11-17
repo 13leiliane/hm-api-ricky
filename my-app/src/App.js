@@ -9,9 +9,6 @@ function App() {
     <div className={styles.app}>
       <div className={styles.img}>
         <div className={styles.container}>
-          <div>
-            <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-          </div>
           <div className={styles.saim}>
             <Card
               name={Rick.name}
@@ -21,6 +18,10 @@ function App() {
               onClose={() => window.alert("Emulamos que se cierra la card")}
             />
             <Cards characters={characters} />
+          </div>
+          <br />
+          <div>
+            <SearchBar onSearch={(characterID) => window.alert(characterID)} />
           </div>
         </div>
       </div>

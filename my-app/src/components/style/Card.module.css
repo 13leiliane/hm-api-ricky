@@ -1,47 +1,54 @@
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* width: 10rem; */
-  color: #ffffff;
-}
-/* .card {
   border-style: solid;
-  border-width: 1px;
- 
+  border-width: 0.5px;
+  border-radius: 1.5rem;
   border-color: black;
-  border-radius: 1rem;
 
-  display: block;
-  position: relative;
-  width: 100%;
-  max-width: 30rem;
-
-  font-weight: 800;
-  font-size: 1.5rem;
-} */
-/* .car + .card {
-
-} */
-/* */ /* */
-
-/* .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 16rem;
+  color: rgba(11, 10, 10, 0.947);
 }
-.claseImage {
+.card > img {
   display: inline;
   border-radius: 1rem;
-} */
-/* .card + .card {
-  border-left: 2rem 1px #ffffff69;
+  width: 13rem;
+  height: 13rem;
+  border-radius: 0.5rem;
 }
 
-.claseImage {
-  width: 10vh;
+.primary {
   display: grid;
-  border-radius: 1rem;
-} */
+  grid-template-columns: 5fr 1fr;
+  grid-template-rows: 5vh 15vh;
+  width: 20rem;
+  padding: 0 0.5rem;
+}
+
+.primary > span {
+  margin-top: 00.5rem;
+  grid-column: 1 / span 2; /* es como diz. quiero que el primary span hijo utilize las dos colunas. (masomenos eso)  */
+}
+
+.name {
+  background-color: rgba(255, 255, 31, 0.266);
+  padding: 0.5rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 900;
+  color: rgb(5, 5, 5);
+}
+.specie {
+  background-color: rgba(255, 255, 31, 0.386);
+  font-weight: 700;
+  border-radius: 999px;
+  color: rgb(12, 11, 11);
+}
+.gende {
+  background-color: rgba(255, 255, 31, 0.427);
+  font-weight: 700;
+  color: rgb(2, 8, 13);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
