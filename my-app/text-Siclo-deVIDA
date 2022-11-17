@@ -1,0 +1,101 @@
+LO QUE ES ESTADO Y SICLO DE FVIDAS DE LOS COMPONENTES. 
+*Como criar un ESTADO DE VIDA ? --Sabendo que nuestros comopnents puedem armazenar un estado local. --- QUE SIGNIFICA ? - Es un stado que yo pueda armazenar un certa informacaion y que esta informacion pueda, mutar , ir cambiando a lo largo del tiempo, de la ejecuccion de nuestra ejeccion e que la inerfaz reacccione justamente a los cambios de los estados. Lo cual puede receber propriedades tiene su  proprio estado sua e puedem redenrizar  
+VAMOS A CREAR UN CONTATOR- CON (CLASS)
+***********
+class CounterClass extendes React.Comopnent{
+  **
+  Para criar un novo stado en um component de tipo CLASS --- vamos utilizar el metodo CONSTRATCTOR = que es el metodo constructor de una clase --
+  *****
+  Aca quiero que ene el constructor  se inicialize el component con um STADO. PERO Primero  necesitetamos inicializar la CLASS que queremos STENDER- que se hace utilizando la palabra reservada de las proprs. (super(props)) --- E despues inicalizaremos el STADO-
+  **  E VAMOS AIGUALR E CRIAR EL STADO. counter = 0; 
+  *** this state igualamos a um objeto Y ESSE OBJECTO, le aplicamos todo lo que queremos que tenga en el component. 
+  ---- Y LUEGO DESPUES EN EL RENDER USAREMOS DE LA SEGUINTE MANERA (THIS.STATE.COUNTER) E se renderiza. 
+  constructor(props){
+super(props)
+  }
+  this.state = {
+    counter=0;
+  }
+  **************
+  Para modificar o stat necesito crear um pares de functions que seam  las que van encargarse de renderizar este novo estado. 
+  -------------
+****
+
+******
+Voy hasta el button para onClick{digo a él que va atener que usar el handlerAdd que es la function que reciuen crie }
+*****
+QUE ES EL (setState =Es um METODO que viene dentro em los components de REACT- que sirve para setera este STATE )-- lo que passaria el nuevo valor del estado
+
+  
+  render()
+  (esto va arenderizar. hago el return con un div com un button e un span que va a tener el contador e despues un otro button para el + e - para renderizar)
+
+****
+import React, { Component } from "react"; *** import component de react 
+class CounterClass extendes React.Comopnent{
+  render()
+  return<div> 
+  <button></button> 
+  <span styles={margin:"0.2rem"}>El valor del contador es :{this.state.counter}</span>
+  <button onClick="{this.handlerAdd}"> +</button>
+  </div> 
+}
+}
+export default CounterClass;
+
+*** 
+dentro de app o del componente padre voy a exportar este Contador. 
+/ 
+++++
+esta funtion --- 
+handlerAddX2 = () = > {
+  this.setState({ counter: this.state.counter + 1})
+  this.setState({ counter: this.state.counter + 1})
+}--QUANDO HACEMOS UN setState- NO ESTAMOS SETEANDO EL STATE INSTANTANEAMENTE- Si no que estamos dando la ordem de SETEAR EL ESTADO de hacer uma llamada  ASINCRONA-- se va a ejecutar por detras dentro de REACT, Y no va a hacer instantaneo. 
+** Entonces solucionamos de la seguinte manera -- Al invez de delvolver ocn el setState um OBJETO com el statdo nuevo-- PUEDO invocar una ArrowFunctiuon DIRECTAMENTE em la que voy a mandar una fucntio, e cuando detecta que es una function, va a poner como argumento de esta funtion EL STADO ACTUAL uqe tiene setState( nos serviria para que cuando hacemos mais de um seState e tengo que tener el statdo actualizado)
+** 1° MANERA DE HACER?-- Mnadar um estado nuevo. 
+2° MANDAR UNA FUNCTION -- que va hacer quien devuelva, retorne el nuevo estado 
+
+**************************************************************************************
+*******************************************************************************
+*************************** ESTE METODO COM CLASES ¨¨¨¨¨¨ import React, { Component } from "react";
+import styles from "./style/Contador.modules.css"; class Contador extends
+React.Component { constructor(props) { super(props); /* el super levanta el
+constructor de la clase passandole lo que usamos como argumentos*/ this.state =
+{ counter: 0, }; this.handlerAdd = this.handlerAdd.bind(this); /*ACA SIM
+ARROWFUNCTION use el BIND// esta es para adicionar.*/ } ///////// /*2° MANREA DE
+HACER USANDO arrowFUNCTION-- no necesita el BIND*/ handleRemove = () => {
+this.setState({ counter: this.state.counter - 1, }); /* esta va aestar tomando
+el constesto directamente de donde esta siendo escrita. si hago usando uma
+ARROWFUNCTION NO ES NECESSARIO HJACER EL BIND// essa class invocamos em el 1°
+buttom*/ }; /* el constesto es que hay que hacer referencia desde donde esta
+siendo ASGNADA.//1 manecessita del BIND en el CONSTRUCTOR*/ handlerAdd() {
+this.setState({ counter: this.state.counter + 1 }); /* Em esta FUNCTION no use
+el ARROWFUNCTION-- Por eso necestite usar el BIND arriba // para que ande
+necesita passar una direccion, o sea tiene que informar a this, para donde deve
+apuntar- (e hacemos eso em el constructor) setstate es como uma ordem*/ }
+handlerAddX2 = () => { this.setState((state) => ({ counter: this.state.counter +
+1 })); this.setState((state) => ({ counter: this.state.counter + 1, }));
+/*--QUANDO HACEMOS UN setState- NO ESTAMOS SETEANDO EL STATE INSTANTANEAMENTE-
+Si no que estamos dando la ordem de SETEAR EL ESTADO de hacer uma llamada
+ASINCRONA-- se va a ejecutar por detras dentro de REACT, Y no va a hacer
+instantaneo. ** Entonces solucionamos de la seguinte manera -- Al invez de
+delvolver ocn el setState um OBJETO com el statdo nuevo-- PUEDO invocar una
+ArrowFunctiuon DIRECTAMENTE em la que voy a mandar una fucntio, e cuando detecta
+que es una function, va a poner como argumento de esta funtion EL STADO ACTUAL
+uqe tiene setState( nos serviria para que cuando hacemos mais de um seState e
+tengo que tener el statdo actualizado) ** 1° MANERA DE HACER?-- Mnadar um estado
+nuevo. 2° MANDAR UNA FUNCTION -- que va hacer quien devuelva, retorne el nuevo
+
+estado */ }; render() { return (
+<div>
+  <button onClick="{this.handleRemove}"></button>
+  <span className="{styles.span}">
+    El valor del contador es :{this.state.counter}
+  </span>
+  <button onClick="{this.handlerAdd}">+</button>
+  <button onClick="{this.handlerAddX2}">+2</button>
+</div>
+); } } export default Contador;
+
+** el seState. NO SOLO CAMBIA EL STATE, SE NO QUE TAMBIEN INFORMA A REACT --- que CAMBIO EL ESTATDO E QUE NECESSITA REDENRIZAR 

@@ -1,25 +1,23 @@
-import { IoMdCloseCircle } from "react-icons/io";
+import { IoSearchSharp } from "react-icons/io5";
 import styles from "./style/SearchBar.module.css";
 
 export default function SearchBar({ onSearch }) {
   // const handleOnSearch = () =>
   //   onSearch(document.getElementById("search-bar-input").value);
 
-  function handleOnSearch() {
-    if (typeof onSearch === "function") {
-      const input = document.getElementById("search-bar-input");
-      onSearch(input.value);
-    }
-  }
+  const handleOnSearch = () => {
+    onSearch(document.getElementById("searchInput").value);
+  };
+
   return (
-    <div className={styles.searchbar}>
+    <div className={styles.searchBar}>
       <input
         className={styles.input}
-        id="search-bar-input"
+        id="searchInput"
         placeholder="Agregar Personaje"
       />
       <button className={styles.button} onClick={handleOnSearch}>
-        <IoMdCloseCircle />
+        <IoSearchSharp />
       </button>
     </div>
   );

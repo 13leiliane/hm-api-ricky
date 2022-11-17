@@ -1,5 +1,17 @@
 const characters = [
   {
+    name: "Alien Googah",
+    species: "Alien",
+    gender: "unknown",
+    image: "https://rickandmortyapi.com/api/character/avatar/13.jpeg",
+  },
+  {
+    name: "Jerry Smith",
+    species: "Human",
+    gender: "Male",
+    image: "https://rickandmortyapi.com/api/character/avatar/5.jpeg",
+  },
+  {
     name: "Morty Smith",
     species: "Human",
     gender: "Male",

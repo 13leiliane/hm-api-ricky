@@ -1,4 +1,52 @@
 .app {
+  background-image: url("./assets/img.png");
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 1rem;
+
+  position: absolute;
+}
+/* .img {
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: bluer(10pix);
+  background-color: rgba(165, 42, 42, 0.311);
+} */
+/* .container {
+  width: 80vw;
+  height: 80vh;
+  margin: 10vh 8.5vw;
+  top: 10;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 1fr;
+} */
+
+/* esse es para el card*/
+/* .saim {
+  display: flex;
+} */
+/* .app,
+.container {
+  background-image: url("./assets/img.png");
+  /* background-image: url("./assets/photo.git"); */
+/* background-image: url("./assets/imger.jpg"); */
+/*background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 1rem;
+
+  position: absolute;
+} */
+
+/** ANDES DE RENDERIZAR CICLO DE VIDA  */
+/*.app {
   top: 0;
   bottom: 0;
   left: 0;
@@ -15,25 +63,25 @@
   width: 80vw;
   height: 80vh;
   margin: 10vh 8.5vw;
-  top: 0;
+  top: 10;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 0.5fr;
-  grid-template-rows: 50vh 20vh;
-}
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 1fr;
+}*/
 
 /* esse es para el card*/
-.saim {
+/*.saim {
   display: flex;
 }
 .app,
 .container {
-  background-image: url("./assets/img.png");
-  /* background-image: url("./assets/photo.git"); */
-  /* background-image: url("./assets/imger.jpg"); */
-  background-repeat: no-repeat;
+  background-image: url("./assets/img.png");*/
+/* background-image: url("./assets/photo.git"); */
+/* background-image: url("./assets/imger.jpg"); */
+/*background-repeat: no-repeat;
   background-size: cover;
   border-radius: 1rem;
 
   position: absolute;
-}
+}*/
