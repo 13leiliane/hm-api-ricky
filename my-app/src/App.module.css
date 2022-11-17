@@ -1,6 +1,47 @@
 .app {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.img {
+  width: 100vw;
+  height: 100vh;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: bluer(16pix);
+  background-color: #77777779;
+}
+.container {
+  width: 70vw;
+  height: 70vh;
+  margin: 15vh 15vw;
+  top: 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50vh 20vh;
+}
+
+/* esse es para el card*/
+.saim {
+  display: inline-flex;
+  height: 20vh;
+  background-color: #ffffff96;
+  backdrop-filter: bluer(16pix);
+  justify-content: space-between;
+  /* 
+  width: 100%;
+  left: 50%;
+  
+  
+  j */
+}
+.app,
+.container {
   background-image: url("./assets/img.png");
+  background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 3rem;
+
   position: absolute;
-  /* width: 100%; */
 }

@@ -6,23 +6,23 @@ import characters, { Rick } from "./db.js";
 
 function App() {
   return (
-    <div className={styles.app} style={{ padding: "25px" }}>
-      <div>
-        <Card
-          name={Rick.name}
-          species={Rick.species}
-          gender={Rick.gender}
-          image={Rick.image}
-          onClose={() => window.alert("Emulamos que se cierra la card")}
-        />
-      </div>
-      <hr />
-      <div>
-        <Cards characters={characters} />
-      </div>
-      <hr />
-      <div>
-        <SearchBar onSearch={(characterID) => window.alert(characterID)} />
+    <div className={styles.app}>
+      <div className={styles.img}>
+        <div className={styles.container}>
+          <div>
+            <SearchBar onSearch={(characterID) => window.alert(characterID)} />
+          </div>
+          <div className={styles.saim}>
+            <Card
+              name={Rick.name}
+              species={Rick.species}
+              gender={Rick.gender}
+              image={Rick.image}
+              onClose={() => window.alert("Emulamos que se cierra la card")}
+            />
+            <Cards characters={characters} />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ export default function Cards(props) {
   const { characters } = props;
   //console.log(characters);
   return (
-    <div className={styles.claseCards}>
+    <div className={styles.cards}>
       {characters.map((char) => (
         <Card
           name={char.name}

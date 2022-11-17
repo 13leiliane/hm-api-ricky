@@ -1,0 +1,197 @@
+/*Cards es un contenedor que tiene todas las Card.  */
+.claseCards {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+}
+/*.claseCards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+} --- quiero mientra sea un celular, mientras quiero em uma pc  (justify-content: center;-- ese usamos para centrar as 3 cards de cards)*/
+
+/** EL component CARDS  es el que va a renderzizar todas las CARD */
+
+/** */
+/** */
+/** */
+/** */
+/* @media screen and (min-width: 576px) {
+  .claseCards {
+    flex-direction: row;
+    justify-content:flex-end;
+  }
+} */
+/*--(( esse a@ usamos em la homework pq nao andava entonces escrevemos assim
+*/
+*****************************************************************
+CARD  CARD  CARD  CARD  
+***********************
+.card {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 1rem;
+  /*vamos dar styles definitivos */
+  /* display: grid; */
+  /* grid-template-columns: repeat(3, 2fr); */
+  /*ESSA PARA LA PARTE DEL NOMBRE -- voy a crriar dos filas pero quiero que la fila de abajo ocupe la mitad da fila de abajo (1fr 2fr) del auto total de mi card  */
+  /* grid-auto-rows: 1fr 2fr; */
+  /* flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(210, 70, 70); */
+  /*voy hacer el boton flotante- pq aplico relative- pq el botton de cerrar va atener una absoluta basada em ele elemento padre que tenga una posicion asignada- ABSOLUTO- es anglado a el elemento padre que tenga una posicion. E RELATIVE - es  relativo al elemento padre que tenga una posicion*/
+
+  display: block;
+  position: relative; /** esto es todo relativo */
+  width: 100%;
+  max-width: 30rem;
+
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+/*   border-style: solid + border-width: 1px + 
+  border-color: red;-- este para crear una liña entre las imagens ===  VAMOSA CRIAR UNA GRIXA--  display: grid;
+  grid-template-columns: repeat(3, 1fr); -- 3 colunad del mismo tamaño// ESTE ENVOLVI A PARTE DEL BOTTON X E LA DIRECCION DE LAS PALABRAS NOMBRES, SPECIES E GENEROS --
+.card solo tiene la parte del botton e los nombres de los personages e generos*/
+.personName {
+  /* QUIERO QUE OCUPE LAS 3 COLUNAS DE LA 1 FILA**/
+  grid-column: 1 / h3 3;
+}
+
+.claseButton {
+  position: absolute;
+  /*VAMOS UBICAR EL BOTTOM ENE EL LADO DIRECTA*/
+
+  right: 0.5rem;
+  /*ahora quiero que ese botton tenga tenga el mismo aire del desde arriba*/
+  top: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--btn-danger-color);
+  /*quiero um botton redondo -- react icon voy a bajar uno. instalo la dependencia de (npm i react-iscons */
+  /*vamos dar styles definitivos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.25rem;
+
+  border-radius: 9999px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
+  background-color: transparent;
+
+  /**/
+}
+
+/*ahora quiero que cuando ponga el mause arriba de este button quiero que quede un color blanco e un backgraun color */
+.claseButton:hover {
+  color: white;
+  background-color: var(--btn-danger-color);
+
+  transition: 250ms;
+}
+/* AHORA VAMOS A TRABAJAR LA PARTE DA LA TIPOGRAFIA. PARA ESO VAMOS HACER EL SEGUINTE-- E VAMOS COPIAR EM HTML-- DESPUES APLICO COMO STYLO GLOBAL EM (INDEX.JS)- VUELVO EM FONTFAMILY E COPIO EL E SUTITUYO LA PARTE DE LA TIPOGRAFIA. Y DEL HTML SACAMOS BOSTRTRAPS(NESSE CASO NAO VEIO BOTSTRAPS EM MI API*/
+/**/
+.claseSpecies {
+  display: block;
+  position: relative;
+  font-weight: 600;
+
+  font-size: 1.5rem;
+}
+.claseGender {
+  display: block;
+  position: relative;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.claseImage {
+  display: inline;
+  border-radius: 1rem;
+}
+**********************
+INDEX.JS
+*****************
+/* :root {
+ --color-maximum-red: #d62828;
+  --color-prussian-blue: #023047;
+
+  --btn-danger-color: var(--color-maximum-red);
+  --btn-color: var(--color-prussian-blue);
+}
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+*/
+
+/* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300;1,400&display=swap"); */
+
+/* :root {
+  --color-maximum-red: #d62828;
+  --color-prussian-blue: #023047;
+
+  --btn-danger-color: var(--color-maximum-red);
+  --btn-color: var(--color-prussian-blue);
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+input {
+  font-family: "Raleway", sans-serif;
+} */
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+} */
+
+/* 
+
+:root {
+  --primary-color: #476072;
+  --primary-font-color: #eeeeee;
+  --body-color: #e1e8eb;
+}
+
+body {
+  background-color: var(--body-color);
+  font-family: "Open Sans", sans-serif;
+}
+
+.title {
+  text-transform: capitalize;
+  /* text-transform: uppercase; */
+/* text-align: center; */
+
+/* background-color: var(--primary-color);
+  color: var(--primary-font-color);
+/* } */

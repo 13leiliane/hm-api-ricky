@@ -1,85 +1,47 @@
 .card {
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  border-radius: 1rem;
-  /*vamos dar styles definitivos */
-  /* display: grid; */
-  /* grid-template-columns: repeat(3, 2fr); */
-  /*ESSA PARA LA PARTE DEL NOMBRE -- voy a crriar dos filas pero quiero que la fila de abajo ocupe la mitad da fila de abajo (1fr 2fr) del auto total de mi card  */
-  /* grid-auto-rows: 1fr 2fr; */
-  /* flex-direction: column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: rgb(210, 70, 70); */
-  /*voy hacer el boton flotante- pq aplico relative- pq el botton de cerrar va atener una absoluta basada em ele elemento padre que tenga una posicion asignada- ABSOLUTO- es anglado a el elemento padre que tenga una posicion. E RELATIVE - es  relativo al elemento padre que tenga una posicion*/
+  /* width: 10rem; */
+  color: #ffffff;
+}
+/* .card {
+  border-style: solid;
+  border-width: 1px;
+ 
+  border-color: black;
+  border-radius: 1rem;
 
   display: block;
-  position: relative; /** esto es todo relativo */
+  position: relative;
   width: 100%;
   max-width: 30rem;
 
   font-weight: 800;
   font-size: 1.5rem;
-}
-/*   border-style: solid + border-width: 1px + 
-  border-color: red;-- este para crear una liña entre las imagens ===  VAMOSA CRIAR UNA GRIXA--  display: grid;
-  grid-template-columns: repeat(3, 1fr); -- 3 colunad del mismo tamaño// ESTE ENVOLVI A PARTE DEL BOTTON X E LA DIRECCION DE LAS PALABRAS NOMBRES, SPECIES E GENEROS --
-.card solo tiene la parte del botton e los nombres de los personages e generos*/
-.personName {
-  /* QUIERO QUE OCUPE LAS 3 COLUNAS DE LA 1 FILA**/
-  grid-column: 1 / h3 3;
-}
+} */
+/* .car + .card {
 
-.claseButton {
-  position: absolute;
-  /*VAMOS UBICAR EL BOTTOM ENE EL LADO DIRECTA*/
+} */
+/* */ /* */
 
-  right: 0.5rem;
-  /*ahora quiero que ese botton tenga tenga el mismo aire del desde arriba*/
-  top: 0.5rem;
-  font-size: 1.5rem;
-  color: var(--btn-danger-color);
-  /*quiero um botton redondo -- react icon voy a bajar uno. instalo la dependencia de (npm i react-iscons */
-  /*vamos dar styles definitivos */
+/* .card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  padding: 0.25rem;
-
-  border-radius: 9999px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: transparent;
-  background-color: transparent;
-
-  /**/
-}
-
-/*ahora quiero que cuando ponga el mause arriba de este button quiero que quede un color blanco e un backgraun color */
-.claseButton:hover {
-  color: white;
-  background-color: var(--btn-danger-color);
-
-  transition: 250ms;
-}
-/* AHORA VAMOS A TRABAJAR LA PARTE DA LA TIPOGRAFIA. PARA ESO VAMOS HACER EL SEGUINTE-- E VAMOS COPIAR EM HTML-- DESPUES APLICO COMO STYLO GLOBAL EM (INDEX.JS)- VUELVO EM FONTFAMILY E COPIO EL E SUTITUYO LA PARTE DE LA TIPOGRAFIA. Y DEL HTML SACAMOS BOSTRTRAPS(NESSE CASO NAO VEIO BOTSTRAPS EM MI API*/
-/**/
-.claseSpecies {
-  display: block;
-  position: relative;
-  font-weight: 600;
-
-  font-size: 1.5rem;
-}
-.claseGender {
-  display: block;
-  position: relative;
-  font-weight: 600;
-  font-size: 1rem;
 }
 .claseImage {
   display: inline;
   border-radius: 1rem;
+} */
+/* .card + .card {
+  border-left: 2rem 1px #ffffff69;
 }
+
+.claseImage {
+  width: 10vh;
+  display: grid;
+  border-radius: 1rem;
+} */
