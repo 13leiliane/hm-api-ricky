@@ -1,5 +1,5 @@
 .cards {
   display: flex;
+  box-sizing: border-box;
 }
 /*ANTES DE RENDERIZAR EL CICLO DE VIDA SOLO TEMNIA ESE DE ARRIBA */
-

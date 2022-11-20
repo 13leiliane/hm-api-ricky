@@ -1,0 +1,17 @@
+  fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.name) {
+          // const person = {
+          //   name: data.name,
+          //   species: data.species,
+          //   gende: data.gende,
+          //   image: data.imag,
+          // };
+          //  setCharacters((oldChars) => [...oldChars, person]);
+        } else {
+          alert("No hay personajes con ese ID");
+        }
+      });
+  }
+  *** COM ESTA FUNCTION AGREGUE UM PERTSONAJE EM LA PANPALLA DE MI APP 

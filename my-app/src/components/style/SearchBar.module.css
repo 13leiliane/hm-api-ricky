@@ -1,21 +1,21 @@
 .searchBar {
   display: flex;
-  margin-top: 1.5rem;
-  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
 }
 .input {
   background-color: transparent;
-  border: none;
-  color: #ffffff;
-  font-size: 1.5rem;
+  border-radius: 1rem;
+  color: #3b0606;
+  font-size: 1rem;
   font-weight: 400;
-  width: 20rem;
+  width: 14.4rem;
 }
 input:focus {
   outline: none;
 }
 .input::placeholder {
-  color: rgb(5, 5, 5);
+  color: rgba(5, 5, 5, 0.431);
 }
 
 .button {
@@ -23,7 +23,7 @@ input:focus {
   border-radius: 9999px;
   width: 3rem;
   height: 2rem;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,5 +39,5 @@ input:focus {
 }*/
 
 .button:hover {
-  background-color: #ffffff60;
+  background-color: #ffffffbe;
 }

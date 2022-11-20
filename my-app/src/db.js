@@ -17,12 +17,12 @@ const characters = [
     gender: "Male",
     image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
   },
-  {
-    name: "Summer Smith",
-    species: "Human",
-    gender: "Female",
-    image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-  },
+  // {
+  //   name: "Summer Smith",
+  //   species: "Human",
+  //   gender: "Female",
+  //   image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+  // },
   {
     name: "Beth Smith",
     species: "Human",
