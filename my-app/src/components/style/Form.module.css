@@ -1,10 +1,8 @@
-.searchBar {
-  padding: 0.5em;
+.form {
   display: flex;
-  justify-content: flex-end;
-  /*justify-content: center*/
+  justify-content: center;
 }
-.input {
+.password {
   background-color: transparent;
   border-radius: 1rem;
   color: #3b0606;
@@ -12,7 +10,24 @@
   font-weight: 400;
   width: 14.4rem;
 }
-input:focus {
+.username {
+  background-color: transparent;
+  border-radius: 1rem;
+  color: #3b0606;
+  font-size: 1rem;
+  font-weight: 400;
+  width: 14.4rem;
+}
+
+.subimit {
+  background-color: transparent;
+  border-radius: 1rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: 100;
+  width: 5rem;
+}
+/*input:focus {
   outline: none;
 }
 .input::placeholder {
@@ -20,7 +35,7 @@ input:focus {
 }
 
 .button {
-  border: solid 2px transparent;
+  border: solid 5px transparent;
   border-radius: 9999px;
   width: 3rem;
   height: 2rem;
@@ -34,11 +49,11 @@ input:focus {
   cursor: pointer;
   color: #141313;
 }
-.searchBar > input:placeholder {
+.form > input:placeholder {
   font-weight: 900;
   font-size: 4rem;
 }
 
 .button:hover {
-  background-color: #ffffffbe;
-}
+  background-color: transparent;
+}*/

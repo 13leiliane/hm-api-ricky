@@ -1,6 +1,6 @@
-.home,
 .about {
-  padding: 0.5em;
+  padding: 1rem;
   display: flex;
   justify-content: center;
+  color: aliceblue;
 }

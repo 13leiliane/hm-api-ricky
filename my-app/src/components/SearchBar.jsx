@@ -1,25 +1,29 @@
 import React, { useState } from "react";
+import styles from "./style/SearchBar.module.css";
+import { IoSearchSharp } from "react-icons/io5";
 
-export default function SearchBar({ onSearch }) {
-  const [person, setPerson] = useState("");
+export default function SearchBar(props) {
+  const { onSearch } = props;
+  const [charcater, setCharacter] = useState("");
+  const handleChange = (evento) => {
+    setCharacter(evento.target.value);
+  };
   return (
-    <form
-      onSubmit={(lei) => {
-        lei.preventDefault();
-        onSearch(person);
-        setPerson("");
-      }}
-    >
+    <div className={styles.searchBar}>
       <input
-        type="text"
-        placeholder="Person..."
-        value={person}
-        onChange={(lei) => setPerson(lei.target.value)}
+        className={styles.input}
+        type="search"
+        value={charcater}
+        onChange={handleChange}
       />
-      <input type="subimit" value="ingresar" />
-    </form>
+
+      <button className={styles.button} onClick={() => onSearch(charcater)}>
+        <IoSearchSharp />
+      </button>
+    </div>
   );
 }
+
 // className={styles.button}
 // import { IoSearchSharp } from "react-icons/io5";
 // import styles from "./style/SearchBar.module.css";

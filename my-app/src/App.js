@@ -1,42 +1,68 @@
-import { useState } from "react";
 import styles from "./App.module.css";
-import Nav from "./components/Nav.jsx";
-import Cards from "./components/Cards.jsx";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Nav from "./components/Nav";
+import Cards from "./components/Cards";
+import About from "./components/About";
+import Detail from "./components/Detail.jsx";
+import Form from "./components/Form";
 
 //import { Rick } from "./db.js";
 
 function App() {
-  const [personajes, setPersonajes] = useState([]);
-  function onSearch(personaje) {
-    fetch(`https://rickandmortyapi.com/api/character/${personaje}`)
-      .then((r) => r.json())
-      .then((recurso) => {
-        if (recurso.data !== undefined) {
-          const personaje = {
-            id: recurso.id,
-            name: recurso.name,
-            species: recurso.species,
-            gender: recurso.gender,
-            image: recurso.image,
-          };
-          setPersonajes((oldPersonajes) => [...oldPersonajes, personaje]);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
+  const username = "exemple@gmail.com";
+  const password = "ae1234";
+
+  function login(userData) {
+    if (userData.username === username && userData.password === password) {
+      setAccess(true);
+      navigate("/home");
+    } else {
+      alert("usuario o contraseña incorrecta");
+    }
+  }
+  function onSearch(character) {
+    fetch(`https://rickandmortyapi.com/api/character/${character}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
         } else {
-          alert("Personajes no encontrado");
+          window.alert("No hay personajes con ese ID");
         }
       });
   }
-  function onClose(id) {
-    setPersonajes((oldPersonajes) => oldPersonajes.filter((p) => p.id !== id));
-  }
+  const onClose = (id) => {
+    console.log(id);
+    setCharacters(characters.filter((char) => char.id !== id));
+  };
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
 
   return (
     <div className={styles.app}>
       <div className={styles.img}>
         <div className={styles.container}>
           <div>
-            <Nav onSearch={onSearch} />
+            <div>
+              {location.pathname !== "/" && <Nav onSearch={onSearch} />}
+            </div>
+            <Form login={login} />
           </div>
-          <Cards personajes={personajes} onClose={onClose} />
+          <Routes>
+            <Route
+              path="/home"
+              element={<Cards characters={characters} onClose={onClose} />}
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/detail/:datailId" element={<Detail />} />
+          </Routes>
         </div>
       </div>
     </div>
@@ -44,7 +70,7 @@ function App() {
 }
 
 export default App;
-
+// <Route path="/" element={<Form />} />
 // //ANTES DE RENDERIZAR EL CICLO DE VIDA
 // import { useState } from "react";
 // import styles from "./App.module.css";

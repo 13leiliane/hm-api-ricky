@@ -1,98 +1,64 @@
+@font-face {
+  font-family: rick_and_morty;
+  src: url(../../assets/MISFITS-font.ttf);
+}
+
 .card {
-  display: block;
-  border-style: solid;
-  border-width: 1.5px;
-  border-radius: 1.5rem;
-  border-color: black;
-  box-shadow: 0 0 20px rgb(86 82 82 / 80%);
-  margin: 0.1em;
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-  width: 16rem;
-  height: 15rem;
-  color: rgba(11, 10, 10, 0.947);
-}
-.card > img {
-  display: inline;
-  border-radius: 0.5rem;
-  width: 14rem;
-  height: 9.5rem;
-  border-radius: 1rem;
+  background-color: rgba(0, 0, 255, 0);
+  border: solid #06d69e21;
+  font-family: rick_and_morty;
+  width: 25em;
+  height: 32em;
+  border-radius: 2em;
+  overflow: hidden;
+  margin: 2em;
+  position: relative;
+  box-shadow: 0 0 10px rgba(86, 82, 82, 0.8);
 }
 
-.primary {
-  display: block;
-  border-style: solid;
-  /* border-width: 1.5px;
-  border-radius: 1.5rem;
-  border-color: black; */
-  border: solid 2px black;
-  background-color: transparent;
-
-  /* border-radius: 9999px; */
-  font-weight: 700;
-
-  display: flex;
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.primary > span {
-  margin-top: 00.5rem;
-  grid-column: 1 / span 2; /* es como diz. quiero que el primary span hijo utilize las dos colunas. (masomenos eso)  */
+.card::after {
+  position: absolute;
+  top: 30%;
+  left: -20%;
+  font-size: 12em;
+  font-weight: 800;
 }
 
-.name {
-  border: solid 2px transparent;
-  background-color: transparent;
-  padding: 0.2rem 0.3rem;
-
-  border-radius: 9999px;
-  font-weight: 700;
-
-  color: rgb(5, 5, 5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.card img {
+  top: 50%;
+  transform: translateY(-55%);
+  z-index: 10000;
+  width: 100%;
+  transition: 0.5s;
 }
-.specie {
-  background-color: transparent;
-  font-weight: 700;
-  border-radius: 999px;
-  color: rgb(12, 11, 11);
-  padding: 0.2rem 0.3rem;
-}
-.gende {
-  background-color: transparent;
-  font-weight: 700;
-  color: rgb(2, 8, 13);
-  padding: 0.2rem 0.3rem;
-  border-radius: 9999px;
-}
-.button {
-  border: solid 2px transparent;
-  border-radius: 9999px;
-  width: 2rem;
-  height: 1.5rem;
-  padding: 5fr;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  background-color: transparent;
-  transition: background-color 0.25s, color 0.35s;
+.card:hover img {
+  top: 0%;
+  transform: translateY(0%);
+  opacity: 1;
+  visibility: visible;
+}
+
+.card h2 {
+  color: #370617;
+}
+
+.card button {
+  border: #06d6a0 solid;
+  border-radius: 0.5em;
+  margin: 0.5em;
+}
+
+.card button:hover {
+  background-color: #ffd60a;
+  border-radius: 0.5em;
+  margin: 0.5em;
   cursor: pointer;
-  color: #0d0c0c;
-}
-/* .searchBar > input:placeholder {
-  font-weight: 900;
-  font-size: 4rem;
-}*/
-
-.button:hover {
-  background-color: #ffffff60;
-  color: #f8485e;
 }
