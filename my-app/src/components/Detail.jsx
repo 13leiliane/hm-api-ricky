@@ -1,19 +1,23 @@
+import styles from "../components/style/Detail.module.css";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import styles from "././Detail.mosule.css";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function Detail() {
-  const { detailId } = useParams();
+const Detail = (props) => {
+  const [character, setCharacter] = useState({
+    name: "",
+    status: "",
+    species: "",
+    gender: "",
+    origin: {},
+    location: {},
+    image: "",
+  });
+
+  const { id } = useParams();
   const navigate = useNavigate();
-  console.log(detailId);
-
-  // creamos el estado
-  const [character, setCharacter] = useState();
-  // Consologuea las informacion e redenrizando en nuestro componente
-  //console.log(character)
 
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character/${detailId}`)
+    fetch(`https://rickandmortyapi.com/api/character/${id}`)
       .then((response) => response.json())
       .then((char) => {
         if (char.name) {
@@ -25,36 +29,60 @@ export default function Detail() {
       .catch((err) => {
         window.alert("No hay personajes con ese ID");
       });
-    return setCharacter({});
-  }, [detailId]);
+    return setCharacter({
+      name: "",
+      status: "",
+      species: "",
+      gender: "",
+      origin: {},
+      location: {},
+      image: "",
+    });
+  }, [id]);
 
-  // importamos useNavigate para que usemos em el handleCkick para el button
-  const handleClick = () => {
+  const backToHome = () => {
     navigate("/home");
   };
 
   return (
-    <div className={styles.detail}>
-      <button onClick={handleClick}>Go Home</button>
-      {character ? (
-        <div>
-          <div>
-            <h1>{character.name}</h1>
-            <h5>{character.status}</h5>
-            <h5>{character.species}</h5>
-            <h5>{character.gender}</h5>
-            <h5>{character.origin?.name}</h5>
-          </div>
-          <div>
-            <img src={character.image} alt={character.name} />
+    <>
+      <div className={styles.detail}>
+        <img
+          src={character.image}
+          alt={character.name}
+          className={styles.image}
+        />
+        <div className={styles.cardInfo}>
+          <h1>{character.name}</h1>
+          <div className={styles.subtitle}>
+            <div className={styles.subtitle1}>
+              <h2>Gender:</h2>
+              <span>{character.gender}</span>
+              <h2>Specie:</h2>
+              <span>{character.species}</span>
+              <h2>Origin:</h2>
+              <span>{character.origin.name}</span>
+            </div>
+            <div className={styles.subtitle1}>
+              <h2>Status:</h2>
+              <span>{character.status}</span>
+              <h2>Type:</h2>
+              <span>{character.type ? character.type : "Uknown"}</span>
+              <h2>Location:</h2>
+              <span>{character.location.name}</span>
+            </div>
           </div>
         </div>
-      ) : (
-        ""
-      )}
-    </div>
+      </div>
+      <button className={styles.button} onClick={() => backToHome()}>
+        Volver al home
+      </button>
+    </>
   );
-}
+};
+
+export default Detail;
+
 //
 //  return (
 //     <div> {character ? <div>

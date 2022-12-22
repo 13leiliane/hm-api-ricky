@@ -1,46 +1,78 @@
-import { IoIosAddCircleOutline } from "react-icons/io";
-import styles from "./style/Card.module.css";
-import { Link } from "react-router-dom";
-//import { IoCloseCircleOutline } from "react-icons/io5";
-export default function Card(props) {
-  //console.log(props)
+import styles from "../components/style/Card.module.css";
+import { GrClose } from "react-icons/gr";
+import { MdOutlineFavoriteBorder, MdFavorite } from "react-icons/md";
+import { NavLink, useLocation } from "react-router-dom";
+import { addFav, deleteFav } from "../redux/actions";
+import { connect } from "react-redux";
+import React from "react";
+
+export const Card = (props) => {
+  const [isFav, setIsFav] = React.useState(false);
+  const { myFavorites } = props;
+
+  const handleFavorite = () => {
+    if (isFav) {
+      setIsFav(false);
+      props.deleteFav(props.id);
+    } else {
+      setIsFav(true);
+      props.addFav(props);
+    }
+  };
+
+  React.useEffect(() => {
+    myFavorites.forEach((fav) => {
+      if (fav.id === props.id) {
+        setIsFav(true);
+      }
+    });
+  }, [myFavorites, props.id]);
+
   return (
     <div className={styles.card}>
-      <button onClick={props.onClose}>
-        <IoIosAddCircleOutline />
-      </button>
-      <h6>{props.id}</h6>
-      <Link to={`/detail/${props.id}`}>
-        <h2>{props.name}</h2>
-      </Link>
-
-      <h2>{props.species}</h2>
-      <h2>{props.gender}</h2>
-      <img src={props.image} alt={props.name} />
+      {isFav ? (
+        <MdFavorite className={styles.addFav} onClick={handleFavorite} />
+      ) : (
+        <MdOutlineFavoriteBorder
+          className={styles.borderFav}
+          onClick={handleFavorite}
+        />
+      )}
+      <img className={styles.cardImg} src={props.image} alt={props.name} />
+      <div className={styles.cardInfo}>
+        <NavLink to={`/detail/${props.id}`}>
+          <h2 className={styles.title}>{props.name}</h2>
+        </NavLink>
+        <div className={styles.subtitle}>
+          <h2>{props.species}</h2>
+          <h2>{props.gender}</h2>
+        </div>
+      </div>
+      {useLocation().pathname !== "/favorites" && (
+        <button
+          className={styles.button}
+          onClick={() => props.onClose(props.id)}
+        >
+          <GrClose />
+        </button>
+      )}
     </div>
   );
-}
+};
 
-// import { IoIosAddCircleOutline } from "react-icons/io";
-// import styles from "./style/Card.module.css";
-// //import { IoCloseCircleOutline } from "react-icons/io5";
-// export default function Card(props) {
-//   //console.log(props);
-//   const { name, image, species, gender, onClose, primary } = props;
+/* eslint-disable */
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFav: (props) => dispatch(addFav(props)),
+    deleteFav: (id) => dispatch(deleteFav(id)),
+  };
+};
+/* eslint-disable */
 
-//   return (
-//     <div className={`${styles.card} ${primary ? styles.primary : ""}`}>
-//       <span className={styles.name}>
-//         {name}
-//         {!primary && (
-//           <button className={styles.button} onClick={onClose}>
-//             <IoIosAddCircleOutline />
-//           </button>
-//         )}
-//       </span>
-//       <img className={styles.img} src={image} alt={name} />
-//       <div className={styles.specie}>{species}</div>
-//       <div className={styles.gende}>{gender}</div>
-//     </div>
-//   );
-// }
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
+
+export default connect(mapStateToProps, { addFav, deleteFav })(Card);

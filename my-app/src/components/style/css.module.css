@@ -2,16 +2,13 @@
   display: flex;
   justify-items: stretch;
   margin: 1rem;
-  background-color: #f1faee1e;
+  background-color: #f1faee;
   height: 300px;
   width: 700px;
   box-shadow: 0px 5px 15px rgba(35, 35, 35, 0.3);
-  border: solid #eef8fa2f 5px;
+  border: solid #f1faee 5px;
   border-radius: 10px;
-}
-.detail .image {
-  border-radius: 10px 0px 0px 10px;
-  width: 300px;
+  background-color: #f1faee;
 }
 
 .cardInfo {
@@ -57,20 +54,15 @@
   font-weight: 400;
   text-transform: uppercase;
   color: #000;
-  background-color: #f1faee09;
+  background-color: #f1faee;
   border: none;
   border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   cursor: pointer;
 }
 
 .button:hover {
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
-}
-
-.button:active {
-  transform: translateY(-5px);
 }
 
 @media (max-width: 740px) {

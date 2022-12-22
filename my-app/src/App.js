@@ -6,8 +6,8 @@ import Cards from "./components/Cards";
 import About from "./components/About";
 import Detail from "./components/Detail.jsx";
 import Form from "./components/Form";
-
-//import { Rick } from "./db.js";
+import PageNotFound from "./components/PageNotFound";
+import Favorites from "./components/favorites/Favorites";
 
 function App() {
   const location = useLocation();
@@ -17,52 +17,74 @@ function App() {
   const username = "exemple@gmail.com";
   const password = "ae1234";
 
-  function login(userData) {
-    if (userData.username === username && userData.password === password) {
+  if (useLocation().pathname === "/") {
+    document.body.classList.add("bodyBlack");
+  } else {
+    document.body.classList.remove("bodyBlack");
+  }
+
+  const login = (userData) => {
+    if (username === userData.username && password === userData.password) {
       setAccess(true);
       navigate("/home");
     } else {
-      alert("usuario o contraseña incorrecta");
+      window.alert("El usuario o la contraseña es incorrecta");
     }
-  }
-  function onSearch(character) {
+  };
+
+  const logout = () => {
+    setAccess(false);
+    navigate("/");
+  };
+  const onSearch = (character) => {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
       .then((response) => response.json())
       .then((data) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
+        if (data.id) {
+          if (characters.some((char) => char.id === data.id)) {
+            window.alert("Ya agregaste a ese personaje!");
+          } else {
+            setCharacters((oldChars) => [...oldChars, data]);
+          }
         } else {
           window.alert("No hay personajes con ese ID");
         }
       });
-  }
+  };
   const onClose = (id) => {
-    console.log(id);
-    setCharacters(characters.filter((char) => char.id !== id));
+    setCharacters((characters) => characters.filter((char) => char.id !== id));
   };
 
+  /* eslint-disable */
   useEffect(() => {
     !access && navigate("/");
   }, [access]);
+  /* eslint-disable */
 
   return (
     <div className={styles.app}>
       <div className={styles.img}>
         <div className={styles.container}>
-          <div>
+          <div className={styles.favorites}>
             <div>
-              {location.pathname !== "/" && <Nav onSearch={onSearch} />}
+              <div>
+                {location.pathname !== "/" && (
+                  <Nav onSearch={onSearch} logout={logout} />
+                )}
+              </div>
             </div>
-            <Form login={login} />
+            <Routes>
+              <Route exact path="/" element={<Form login={login} />} />
+              <Route
+                path="/home"
+                element={<Cards characters={characters} onClose={onClose} />}
+              />
+              <Route path="/detail/:id" element={<Detail />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/favorites" element={<Favorites />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
           </div>
-          <Routes>
-            <Route
-              path="/home"
-              element={<Cards characters={characters} onClose={onClose} />}
-            />
-            <Route path="/about" element={<About />} />
-            <Route path="/detail/:datailId" element={<Detail />} />
-          </Routes>
         </div>
       </div>
     </div>

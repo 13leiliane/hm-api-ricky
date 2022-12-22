@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Validation } from "./Validation";
 import styles from "././style/Form.module.css";
+import logeo from "../assets/logeo.jpg";
 
 export default function Form(props) {
   const [userData, setUserData] = useState({
@@ -25,11 +26,11 @@ export default function Form(props) {
   };
 
   return (
-    <div className={styles.form}>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <img src={logeo} alt="logeo" />
+      <form className={styles.form} onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input
-          className={styles.username}
           id="username"
           name="username"
           placeholder="Ingrese el usuario..."
@@ -37,18 +38,30 @@ export default function Form(props) {
           value={userData.username}
           onChange={handleInputChange}
         />
-        <p>{errors.username}</p>
+        <p className={`${styles.errormail} ${styles.error}`}>
+          {errors.username}
+        </p>
         <label htmlFor="password">Password:</label>
         <input
-          className={styles.password}
           id="password"
           name="password"
           type="password"
           value={userData.password}
           onChange={handleInputChange}
         />
-        <p>{errors.password}</p>
-        <input className={styles.subimit} type="submit" />
+        <p className={`${styles.errorpass} ${styles.error}`}>
+          {errors.password}
+        </p>
+        <button
+          type="submit"
+          className={
+            !Object.values(errors).length
+              ? styles.button
+              : styles.buttonDisabled
+          }
+        >
+          Login
+        </button>
         <br />
         <br />
         <br />

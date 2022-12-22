@@ -1,11 +1,42 @@
-import React from "react";
-import styles from "./style/About.module.css";
+import style from "./style/About.module.css";
+import { useNavigate } from "react-router-dom";
 
-export default function About() {
+const About = () => {
+  const navigate = useNavigate();
+
+  const backToHome = () => {
+    navigate("/home");
+  };
   return (
-    <div className={styles.about}>
-      <h1> Bienvenido a Rick & Morty App</h1>
-      <h6> Creado por: Lili</h6>
-    </div>
+    <>
+      <div className={style.detail}>
+        <div className={style.cardInfo}>
+          <h1>LEILIANE SILVA</h1>
+          <div className={style.subtitle}>
+            <div className={style.subtitle1}>
+              <h2>Gender:</h2>
+              <span>good</span>
+              <h2>Specie:</h2>
+              <span>Human</span>
+              <h2>Origin:</h2>
+              <span>Earth (Brasileña/vive Argentina)</span>
+            </div>
+            <div className={style.subtitle1}>
+              <h2>Status:</h2>
+              <span>Alive</span>
+              <h2>Type:</h2>
+              <span>Developer</span>
+              <h2>Location:</h2>
+              <span>Behind your screen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button className={style.button} onClick={() => backToHome()}>
+        Volver al home
+      </button>
+    </>
   );
-}
+};
+
+export default About;
